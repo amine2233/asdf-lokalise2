@@ -72,11 +72,11 @@ get_filename() {
         case $platform in
             # XXX: The keyword "alpha" is tentative
             # See also) https://github.com/raimon49/asdf-goss/pull/1
-            darwin | windows) binary_name="${binary_name}-alpha";;
+            darwin | windows) binary_name="${binary_name}";;
         esac
     fi
 
-    echo "${binary_name}-${platform}-${arch_name}"
+    echo "${binary_name}_${platform}_${arch_name}"
 }
 
 get_download_url() {
