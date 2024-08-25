@@ -43,7 +43,6 @@ download_release() {
 
 	# TODO: Adapt the release URL convention for lokalise2
 	url="$GH_REPO/releases/download/v${version}/lokalise2_darwin_arm64.tar.gz"
-	https://github.com/lokalise/lokalise-cli-2-go/releases/download/v3.0.1/lokalise2_darwin_arm64.tar.gz
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
