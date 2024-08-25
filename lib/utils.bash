@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for lokalise2.
-GH_REPO="https://github.com/ahmdyasser/asdf-lokalise2"
+GH_REPO="https://github.com/lokalise/lokalise-cli-2-go"
 TOOL_NAME="lokalise2"
 TOOL_TEST="lokalise2"
 
@@ -42,7 +42,8 @@ download_release() {
 	filename="$2"
 
 	# TODO: Adapt the release URL convention for lokalise2
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	url="$GH_REPO/releases/download/v${version}/lokalise2_darwin_arm64.tar.gz"
+	https://github.com/lokalise/lokalise-cli-2-go/releases/download/v3.0.1/lokalise2_darwin_arm64.tar.gz
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
