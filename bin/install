@@ -23,7 +23,7 @@ install_tool() {
     download_path="${tmp_download_dir}/${binary_name}.tar.gz"
 
     echo "Downloading [${binary_name}] from ${download_url} to ${download_path}"
-    curl -fsSL -o "${download_path}" "${download_url}"
+    curl -fsSL -o "${download_path}" "${download_url}" || fail "Could not download $download_path"
     
     echo "Untar ${download_path} at ${tmp_download_dir}"
     tar -xzf "$download_path" -C "$tmp_download_dir" --strip-components=1 || fail "Could not extract $download_path"
