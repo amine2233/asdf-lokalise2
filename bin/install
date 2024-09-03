@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+curl_opts=(-fsSL)
+
 install_tool() {
     local version="$2"
     local install_path="$3"
@@ -21,7 +23,7 @@ install_tool() {
     download_path="${tmp_download_dir}/${binary_name}.tar.gz"
 
     echo "Downloading [${binary_name}] from ${download_url} to ${download_path}"
-    curl -fsSL -o "${download_path}" "${download_url}"
+    curl "${curl_opts[@]}" -o "$download_path" -C - "$download_url" || fail "Could not download $download_url"
     tar -xzf "$download_path" -C "$tmp_download_dir" --strip-components=1 || fail "Could not extract $download_path"
     echo "Creating bin directory"
     mkdir -p "${bin_install_path}"
