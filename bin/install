@@ -8,6 +8,8 @@ install_tool() {
     local tmp_download_dir="$4"
     local binary_name="$5"
 
+    mkdir -p "${tmp_download_dir}"
+
     local platform
     local arch_name
     local bin_install_path="${install_path}/bin"
@@ -96,5 +98,4 @@ get_download_url() {
 
 #tmp_download_dir="$(mktemp -d -t 'asdf_XXXXXXXX')"
 #trap 'rm -rf "${tmp_download_dir}"' EXIT
-mkdir -p "${ASDF_DOWNLOAD_PATH}"
 install_tool "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH" "$ASDF_DOWNLOAD_PATH" lokalise2
