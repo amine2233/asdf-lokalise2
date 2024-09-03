@@ -22,7 +22,7 @@ install_tool() {
 
     echo "Downloading [${binary_name}] from ${download_url} to ${download_path}"
     curl -fsSL -o "${download_path}" "${download_url}"
-    tar -xzf "$download_path" -C "$tmp_download_dir" --strip-components=1 || fail "Could not extract $download_path"
+    tar -xzf "$download_path" -C "$tmp_download_dir/${binary_name}" --strip-components=1 || fail "Could not extract $download_path"
     echo "Creating bin directory"
     mkdir -p "${bin_install_path}"
 
