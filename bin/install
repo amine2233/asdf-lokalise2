@@ -30,6 +30,7 @@ install_tool() {
     mkdir -p "${bin_install_path}"
 
     echo "Copying binary"
+    mkdir -p "${bin_install_path}"
     cp "${tmp_download_dir}/${binary_name}" "${binary_path}"
     chmod +x "${binary_path}"
 
